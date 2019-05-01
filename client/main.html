@@ -1,0 +1,35 @@
+<head>
+  <title>Front METEOR JS</title>
+</head>
+
+<body>
+  <h1>Framework Board!</h1>
+  {{> frameworkBoard}}
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+<template name="frameworkBoard">
+  {{#each framework}}
+  <div style="padding: 8px">
+    <span style="width: 500px; display: inline-block" class="framework {{ selectedClass }}">{{name}}: {{score}}</span>
+    <input style="display: inline-block" type="button" class="increment btn btn-success" value="+">
+    <input  style="display: inline-block" type="button" class="decrement btn btn-danger" value="-">
+  </div>
+  {{/each}}
+
+  <br>
+
+  {{> addFrameworkForm}}
+</template>
+
+<template name="addFrameworkForm">
+    <form id="addFrameworkForm">
+      <div class="form-group">
+        <input type="text" class="form-control" name="frameworkName" placeholder="Enter framework name">
+      </div>
+
+      <button type="submit" form="addFrameworkForm" class="btn btn-info">Add Framework</button>
+    </form>
+</template>
